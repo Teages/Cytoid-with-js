@@ -298,7 +298,7 @@ function cytoidView(svgID, chart_input, pageID, displayMode = "") {
     })
     printNote(pageID, noteBox, false)
     // console.log(viewer.innerSVG());
-    console.log(pageID)
+    // console.log(pageID)
     delete viewer;
     return;
 }
@@ -338,7 +338,7 @@ function showAllPages(containerID, chart, displayMode, skipBefore = true, skipAf
         let page = document.getElementById(containerID).appendChild(newSVG());
         page.id = randomString(16)
         cytoidView(page.id, chart, page_p, displayMode)
-        console.log(page_p)
+        // console.log(page_p)
         page.id = "page-" + String(page_p)
     }
 

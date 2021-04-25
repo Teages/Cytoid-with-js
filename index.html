@@ -7877,44 +7877,27 @@
       });
       document.getElementById("showmode").addEventListener("input", function () {
         cytoidView("svg-view", chart, Number(document.getElementById("page-id").value), document.getElementById("showmode").value)
+        document.getElementById('pages').innerHTML = ""
+        showAllPages('pages', chart, document.getElementById("showmode").value, true, true)
       });
       document.getElementById("chartJSON").addEventListener("input", function () {
         try {
           tmpchart = JSON.parse(this.value)
           chart = tmpchart
           cytoidView("svg-view", chart, Number(document.getElementById("page-id").value), document.getElementById("showmode").value)
+          document.getElementById('pages').innerHTML = ""
+          showAllPages('pages', chart, document.getElementById("showmode").value, true, true)
         } catch (error) {
           alert("Not a JSON")
           this.value = JSON.stringify(chart)
         }
         chart = JSON.parse(this.value)
         cytoidView("svg-view", chart, Number(document.getElementById("page-id").value), document.getElementById("showmode").value)
+        document.getElementById('pages').innerHTML = ""
+        showAllPages('pages', chart, document.getElementById("showmode").value, true, true)
       });
       cytoidView("svg-view", chart, Number(document.getElementById("page-id").value), document.getElementById("showmode").value)
 
-      // function randomString(e) {
-      //   e = e || 32;
-      //   var t = "ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz",
-      //     a = t.length,
-      //     n = "";
-      //   for (i = 0; i < e; i++) n += t.charAt(Math.floor(Math.random() * a));
-      //   return n
-      // }
-      // // alert(randomString(6));
-      // function newSVG() {
-      //   const ns = 'http://www.w3.org/2000/svg';
-
-      //   let el = document.createElementNS(ns, "svg");
-      //   return el;
-      // }
-
-      // for (let page_p in chart.page_list) {
-      //   let page = document.getElementById('pages').appendChild(newSVG());
-      //   page.id = randomString(16)
-      //   cytoidView(page.id, chart, page_p, document.getElementById("showmode").value)
-      //   console.log(page_p)
-      //   page.id = "page-" + String(page_p)
-      // }
       showAllPages('pages', chart, document.getElementById("showmode").value, true, true)
     };
   </script>
